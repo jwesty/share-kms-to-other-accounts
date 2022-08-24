@@ -49,7 +49,7 @@ data "aws_iam_policy_document" "shared-kms-key" {
       "kms:DescribeKey",
       "kms:CreateGrant", # Must be in place to update ASG service-linked Grants
       "kms:ListGrants", # Must be in place to update ASG service-linked Grants
-      "kms:Delete*" # Must be in place to update ASG service-linked Grants
+      "kms:RevokeGrant" # Must be in place to update ASG service-linked Grants
     ]
     principals {
       type        = "AWS"
