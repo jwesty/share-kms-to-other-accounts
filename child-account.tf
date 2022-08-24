@@ -5,7 +5,7 @@ data "aws_iam_policy_document" "allow_sdlc_key_attachment" {
     actions = [
       "kms:CreateGrant", # Must be in place to update ASG service-linked Grants
       "kms:ListGrants", # Must be in place to update ASG service-linked Grants
-      "kms:Delete*" # Must be in place to update ASG service-linked Grants
+      "kms:RevokeGrant" # Must be in place to update ASG service-linked Grants
     ]
     principals {
       identifiers = [
@@ -46,6 +46,6 @@ resource "aws_kms_grant" "grant_autoscaling_access" {
     "GenerateDataKey",
     "GenerateDataKeyWithoutPlaintext",
     "DescribeKey",
-    "CreateGrant"
+    "RetireGrant"
   ]
 }
