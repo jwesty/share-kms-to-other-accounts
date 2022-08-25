@@ -11,3 +11,7 @@ There's TONS of information on the web about sharing a KMS key with another acco
 ## Simplification
 - Use the parent-account.tf in your main account that will hold the KMS key (the one to be shared) and modify the account numbers as needed
 - Use the child-account.tf in your secondary account that will receive the KMS key. 
+
+## Example
+- The parent_account.tf has 2 values that need to be updated. Replace  `111111111111` with the account number that owns the KMS key and `444444444444` with the account you are sharing the KMS key to (child account). This terraform will get deployed to the account that owns the KMS key.
+- Likewise, in the child_account.tf file, replace `111111111111` with the account number that owns the KMS key and `444444444444` with the account you are sharing the KMS key to (child account). This terraform will get deployed to the account that is RECEIVING the KMS key.
